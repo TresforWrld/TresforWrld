@@ -3,137 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grey Archive | Books & Creativity</title>
+<title>Grey Archive | Literary Platform</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* -------------------- Global -------------------- */
 body {
     margin: 0;
     background-color: #111111;
     color: #f2f2f2;
     font-family: 'Inter', sans-serif;
 }
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* -------------------- Header -------------------- */
 header {
-    padding: 30px 8%;
+    padding: 25px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #2a2a2a;
 }
-
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    letter-spacing: 2px;
-    color: #f2f2f2;
+    font-size: 28px;
 }
-
-nav a {
-    color: #cccccc;
-    margin-left: 25px;
-    font-size: 14px;
-    transition: 0.3s;
+nav button {
+    background: none;
+    border: 1px solid #444;
+    color: #ccc;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-left: 10px;
 }
-
-nav a:hover {
-    color: #ffffff;
+nav button:hover {
+    background: #333;
 }
-
-/* -------------------- Hero -------------------- */
-.hero {
-    padding: 100px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.section {
+    padding: 60px 8%;
 }
-
-.hero-text {
-    max-width: 550px;
-}
-
-.hero-text h1 {
+h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.hero-text p {
-    color: #bbbbbb;
-    line-height: 1.6;
     margin-bottom: 30px;
 }
-
-.button {
-    background-color: #2a2a2a;
-    padding: 12px 28px;
-    text-decoration: none;
-    color: white;
-    border: 1px solid #444;
-    transition: 0.3s;
-    display: inline-block;
-}
-
-.button:hover {
-    background-color: #444;
-}
-
-/* -------------------- Sections -------------------- */
-.section {
-    padding: 80px 8%;
-}
-
-.section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    margin-bottom: 40px;
-}
-
-/* -------------------- Books Grid -------------------- */
 .books-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
+    gap: 30px;
 }
-
 .book-card {
-    background-color: #1a1a1a;
+    background: #1a1a1a;
     padding: 20px;
     border: 1px solid #2a2a2a;
     transition: 0.3s;
 }
-
 .book-card:hover {
     border-color: #555;
 }
-
 .book-card img {
     width: 100%;
     margin-bottom: 15px;
     border-radius: 4px;
 }
-
 .book-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     margin-bottom: 10px;
 }
-
 .book-card p {
     font-size: 14px;
     color: #bbbbbb;
 }
-
-/* -------------------- Footer -------------------- */
+.book-card button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    cursor: pointer;
+}
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+}
+.comment-box {
+    margin-top: 15px;
+}
 footer {
     padding: 40px 8%;
     text-align: center;
@@ -141,60 +97,51 @@ footer {
     font-size: 14px;
     color: #777;
 }
-
-/* -------------------- Responsive -------------------- */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-text {
-        max-width: 100%;
-    }
+    .hero-text { max-width: 100%; }
 }
 </style>
 </head>
-
 <body>
 
 <header>
     <div class="logo">Grey Archive</div>
     <nav>
-        <a href="#">Books</a>
-        <a href="#">Poetry</a>
-        <a href="#">Art</a>
-        <a href="#">About</a>
+        <button onclick="showLogin()">Login / Signup</button>
+        <button onclick="logout()">Logout</button>
     </nav>
 </header>
-
-<section class="hero">
-    <div class="hero-text">
-        <h1>Discover, Read, and Engage</h1>
-        <p>A curated library of stories, poetry, and art — for readers and writers alike. Explore tales that blur reality, imagination, and emotion.</p>
-        <a href="#" class="button">Explore Books</a>
-    </div>
-</section>
 
 <section class="section">
     <h2>Featured Works</h2>
     <div class="books-grid">
 
-        <div class="book-card">
+        <div class="book-card" data-book="beyond-ai">
             <img src="https://n.uguu.se/dafdUPKy.jpg" alt="Beyond AI">
             <h3>Beyond AI</h3>
-            <p>A futuristic tale exploring humanized AI and the emotional evolution of artificial beings.</p>
+            <p>A futuristic tale exploring humanized AI and emotional evolution.</p>
+            <button onclick="addFavorite('beyond-ai')">⭐ Save to Favorites</button>
+            <button onclick="incrementViews('beyond-ai')">👁 View</button>
+
+            <div class="comment-box">
+                <textarea id="comment-beyond-ai" placeholder="Write a comment..."></textarea>
+                <button onclick="postComment('beyond-ai')">Post Comment</button>
+            </div>
+            <div id="comments-beyond-ai"></div>
         </div>
 
-        <div class="book-card">
+        <div class="book-card" data-book="elemetals">
             <img src="https://o.uguu.se/DzgpDTfl.jpg" alt="Elemetals">
             <h3>Elemetals</h3>
             <p>When elements awaken power within the bloodstream, humanity begins to change forever.</p>
-        </div>
+            <button onclick="addFavorite('elemetals')">⭐ Save to Favorites</button>
+            <button onclick="incrementViews('elemetals')">👁 View</button>
 
-        <div class="book-card">
-            <img src="https://o.uguu.se/HBUYxzyK.jpg" alt="Just A Reflection">
-            <h3>Just A Reflection</h3>
-            <p>Reality bends, perception fractures, and truth hides behind what we think we see.</p>
+            <div class="comment-box">
+                <textarea id="comment-elemetals" placeholder="Write a comment..."></textarea>
+                <button onclick="postComment('elemetals')">Post Comment</button>
+            </div>
+            <div id="comments-elemetals"></div>
         </div>
 
     </div>
@@ -203,15 +150,99 @@ footer {
 <section class="section">
     <h2>About Grey Archive</h2>
     <p style="color:#bbbbbb; line-height:1.7;">
-        Grey Archive is a professional literary platform designed for readers and writers.  
-        Discover stories, save favorites, engage with authors, and explore new voices.  
-        In Phase 1, only curated content from the founder is published, with community contributions opening later.
+        Grey Archive is a professional literary platform for readers and writers. Discover stories, save favorites, engage with authors, and explore new voices. Phase 1 is curated content only; community posting opens later.
     </p>
 </section>
+
+<!-- LOGIN MODAL -->
+<div id="authBox" style="display:none; padding:40px; background:#1a1a1a; border-top:1px solid #333;">
+    <h2>Login / Signup</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="signup()">Sign Up</button>
+    <button onclick="login()">Login</button>
+</div>
 
 <footer>
     © 2026 Grey Archive — All Rights Reserved
 </footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, updateDoc, addDoc, collection, getDocs, increment, query, where, orderBy } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+/* 🔥 REPLACE THIS WITH YOUR FIREBASE CONFIG */
+const firebaseConfig = {
+    apiKey: "AIzaSyDLyFV56llIt2yUu0auGsoydQndL6f8hAc",
+    authDomain: "grey-archive.firebaseapp.com",
+    projectId: "grey-archive",
+    storageBucket: "grey-archive.firebasestorage.app",
+    messagingSenderId: "750565537127",
+    appId: "1:750565537127:web:057a11a50f86aafeae2bc2",
+    measurementId: "G-SPJQG75P5S"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+window.showLogin = function() {
+    document.getElementById("authBox").style.display = "block";
+};
+
+window.signup = async function() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await setDoc(doc(db, "users", userCredential.user.uid), {
+        role: "reader",
+        favorites: []
+    });
+    alert("Account created!");
+};
+
+window.login = async function() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    await signInWithEmailAndPassword(auth, email, password);
+    alert("Logged in!");
+};
+
+window.logout = function() {
+    signOut(auth);
+    alert("Logged out!");
+};
+
+window.addFavorite = async function(bookId) {
+    const user = auth.currentUser;
+    if (!user) return alert("Login first.");
+    const userRef = doc(db, "users", user.uid);
+    await updateDoc(userRef, {
+        favorites: increment(1) // placeholder, later change to array push
+    });
+    alert("Added to favorites!");
+};
+
+window.postComment = async function(bookId) {
+    const user = auth.currentUser;
+    if (!user) return alert("Login first.");
+    const text = document.getElementById("comment-" + bookId).value;
+    await addDoc(collection(db, "comments"), {
+        bookId: bookId,
+        user: user.email,
+        text: text,
+        createdAt: new Date()
+    });
+    alert("Comment posted!");
+};
+
+window.incrementViews = async function(bookId) {
+    await setDoc(doc(db, "views", bookId), {
+        count: increment(1)
+    }, { merge: true });
+};
+</script>
 
 </body>
 </html>
