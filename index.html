@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tresfor Wrld | Author</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    background-color: #111111;
+    color: #f2f2f2;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #cccccc;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+.hero {
+    padding: 100px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #bbbbbb;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.button {
+    background-color: #2a2a2a;
+    padding: 12px 28px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #444;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #444;
+}
+
+.section {
+    padding: 80px 8%;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+.book-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #2a2a2a;
+    transition: 0.3s;
+}
+
+.book-card:hover {
+    border-color: #555;
+}
+
+.book-card img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.book-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+footer {
+    padding: 40px 8%;
+    text-align: center;
+    border-top: 1px solid #2a2a2a;
+    font-size: 14px;
+    color: #777;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Tresfor Wrld</div>
+    <nav>
+        <a href="#">Books</a>
+        <a href="#">Poetry</a>
+        <a href="#">Art</a>
+        <a href="#">About</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Stories Beyond The Ordinary</h1>
+        <p>Exploring emotion, imagination, and the fragile line between reality and reflection. Welcome to my literary world.</p>
+        <a href="#" class="button">Explore Books</a>
+    </div>
+    <div>
+        <img src="cover.jpg" alt="Featured Book Cover" width="300">
+    </div>
+</section>
+
+<section class="section">
+    <h2>Featured Works</h2>
+    <div class="books-grid">
+
+        <div class="book-card">
+            <img src="beyond-ai.jpg" alt="Beyond AI">
+            <h3>Beyond AI</h3>
+            <p>A futuristic tale exploring humanized AI and the emotional evolution of artificial beings.</p>
+        </div>
+
+        <div class="book-card">
+            <img src="elemetals.jpg" alt="Elemetals">
+            <h3>Elemetals</h3>
+            <p>When elements awaken power within the bloodstream, humanity begins to change forever.</p>
+        </div>
+
+        <div class="book-card">
+            <img src="reflection.jpg" alt="Just A Reflection">
+            <h3>Just A Reflection</h3>
+            <p>Reality bends, perception fractures, and truth hides behind what we think we see.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Tresfor Wrld — All Rights Reserved
+</footer>
+
+</body>
+</html>
