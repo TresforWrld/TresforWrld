@@ -313,7 +313,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import { getFirestore, doc, setDoc, updateDoc, addDoc, collection, increment } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
 
 /* 🔥 Your Firebase config */
-const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyDLyFV56llIt2yUu0auGsoydQndL6f8hAc",
     authDomain: "grey-archive.firebaseapp.com",
     projectId: "grey-archive",
@@ -321,8 +321,7 @@ const firebaseConfig = {
     messagingSenderId: "750565537127",
     appId: "1:750565537127:web:057a11a50f86aafeae2bc2",
     measurementId: "G-SPJQG75P5S"
-};
-
+  };
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
